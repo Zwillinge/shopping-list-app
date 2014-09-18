@@ -1,0 +1,20 @@
+[
+    {id:1, value:"Apple", category:"Grocery", color:"#02bd74", checked:1, bought:1},
+    {id:2, value:"Banana", category:"Grocery", color:"#02bd74"},
+    {id:3, value:"White bread", category:"Bread", color:"#ff5314", checked: 0},
+    {id:4, value:"Cabbage", category:"Grocery", color:"#02bd74"},
+    {id:5, value:"Ice-cream", category:"Sweet", color:"#ff3a9b", checked:1, count:5},
+    {id:6, value:"Salmon", category:"Fish", color:"#02a7b6"},
+    {id:7, value:"Rice",  category:"Cereals", color:"#999999",},
+    {id:8, value:"Sour-cream", category:"Diary products", color:"#6970ff"},
+    {id:9, value:"Honey", category:"Sweet", color:"#ff3a9b"},
+    {id:10, value:"Cinnamon", category:"Spices", color:"#ddad2f"},
+    {id:11, value:"Milk", category:"Diary products", color:"#6970ff"},
+    {id:12, value:"Cucumber", category:"Grocery", color:"#02bd74"},
+    {id:13, value:"Orange", category:"Grocery", color:"#02bd74"},
+    {id:14, value:"Biscuits", category:"Bread", color:"#ff5314"},
+    {id:15, value:"Chili pepper", category:"Spices", color:"#ddad2f"},
+    {id:16, value:"Beef", category:"Meat", color:"#9b2737"},
+    {id:17, value:"Napkins", category:"Manufactured goods", color:"#4ab3fc"},
+
+]
