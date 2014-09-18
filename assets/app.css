@@ -1,0 +1,198 @@
+.webix_view.webix_toolbar{
+    background-color:#5c537d;
+}
+
+.webix_view>.webix_disabled{
+    background-color:#908ba4;
+}
+
+.webix_view.webix_scrollview{;
+    background-image:url('imgs/bg.png');
+}
+
+/*inputs*/
+.webix_view.webix_control.webix_el_text.rename input{
+     background-color:#908ba4;
+     color:#fff;
+ }
+
+.webix_view.webix_control.webix_el_text.num .webix_input_icon.fa-cog:before{
+    content:"";
+    background-image:url(imgs/num.png);
+    display:block;
+    width:30px;
+    height:30px;
+}
+
+.webix_view.webix_control.webix_el_text.num .webix_input_icon.fa-cog{
+    padding-top:1px !important;
+}
+.webix_view.webix_control.webix_el_text.num .webix_input_icon{
+    right: 15px;
+    background: none repeat scroll 0% 0% transparent;
+    z-index: 1;
+    position: absolute;
+}
+
+.webix_view.webix_control.webix_el_text.num .webix_el_box {
+    position: relative;
+}
+
+/*toolbar icons*/
+.webix_icon_button{
+    background:transparent;
+}
+
+.webix_layout_toolbar.webix_toolbar .webix_icon_button .webix_icon,
+.webix_view.webix_menu-x .webix_list_item{
+    color: #5C537D;
+    font-size: 20px;
+    border-radius: 17px;
+    height: 30px !important;
+    width: 30px !important;
+    line-height: 1.5em;
+    padding: 2px;
+    background-color: #FFF;
+}
+
+.webix_view.webix_menu-x .webix_list_item{
+     margin-top:5px;
+     padding:7px 0px;
+ }
+
+.webix_input_icon.fa-ellipsis-v:before{
+      padding:3px;
+}
+
+.webix_icon.fa-align-justify{
+    color: #5C537D;
+    line-height: 1.4em;
+}
+
+.webix_layout_toolbar.webix_toolbar .webix_icon_button:hover,
+.webix_layout_toolbar.webix_toolbar .webix_icon_button:focus{
+    background-color: #5C537D !important;
+    border-color:#5C537D !important;
+}
+
+/*lists*/
+.webix_view.webix_list.buy{
+    border:0px !important;
+    /*border-width:0px 0px 1px 0px !important;*/
+    /*border-style:dotted;*/
+    border-color:#666;
+    background-color:#fff;
+    color:#000;
+}
+
+.webix_view.webix_list.bought{
+    background:transparent;
+}
+
+.webix_view.webix_list.bought .webix_list_item{
+     background:transparent;
+     text-decoration:line-through;
+     /*border-top:1px solid #EBEBEB;*/
+     border:none;
+     color:#818181;
+}
+
+.webix_list_item .count{
+	float:right;
+}
+
+.webix_list_item .category{
+    display:block;
+    float:left;
+    margin:0px 4px 4px 0px;
+    height:28px;
+    width:5px;
+}
+
+.webix_list_overlay{
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+    padding-top: 20px;
+}
+
+/*icons used in lists*/
+.webix_input_icon.fa-pencil, .webix_input_icon.fa-trash-o{
+	font-size:17px;
+	line-height:1.8em;
+	display:none;
+}
+
+.webix_input_icon.fa-check-square-o, .webix_input_icon.fa-square-o{
+    float:none;
+    font-size:15px;
+    padding: 6px 5px;
+}
+
+.webix_input_icon.fa-check-square-o:hover, .webix_input_icon.fa-square-o:hover{
+    background-color:#fff;
+}
+
+/*unitlist styles*/
+.category_label {
+    height: 24px;
+    margin: 0 -10px;
+    padding: 0 10px;
+    color:#fff;
+    display:inline-block;
+    border-radius:inherit;
+}
+
+.webix_list .webix_unit_header {
+    background-image: -moz-linear-gradient(center top , #fff 17px, #65a0ff 17px, #fff 18px);
+    margin-top: -1px;
+    height:30px !important;
+}
+.webix_list .webix_unit_header:first-child {
+    margin-top: 0;
+}
+.webix_unit_header_inner {
+    background: none repeat scroll 0 0 rgb(101, 160, 255);
+    border-radius: 12px;
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    margin-top: 5px;
+    padding: 0 5px;
+    text-align: center;
+}
+
+/*datasuggest styles*/
+.webix_view.webix_window.webix_popup.suggest,
+.webix_view.webix_window.webix_popup.suggest .webix_view.webix_dataview{
+	background-color:transparent;
+	border:none;
+	box-shadow:none;
+}
+
+.suggest_item{
+    width:82%;
+    padding:0px 10px;
+    border-radius:12px;
+    color:#fff;
+}
+
+.webix_dataview_item{
+    border:none;
+}
+
+.webix_dataview_item.webix_selected{
+    background:none !important;
+    border:none;
+    opacity:0.7;
+}
+
+.webix_dataview_item.webix_selected .suggest_item{
+    color:#fff;
+}
+
+.webix_point_top{
+	height:0px;
+}
