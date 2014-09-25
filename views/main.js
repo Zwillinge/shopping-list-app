@@ -81,7 +81,7 @@ define([
                         if(e.target.className==="webix_input_icon fa-cog") enterNumDelimiter();
                     }
                 }},
-                {view:'icon', icon:'align-justify', click:function(){app.show("/side");}}
+                {view:'icon', icon:'align-justify', click:function(){this.$scope.show("/side");}}
             ]},
             { $subview:true }
         ]

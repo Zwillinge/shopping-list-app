@@ -11,7 +11,6 @@ define([
     }
 
     function hideSuggest(){
-        debugger;
         $$("suggest").hide();
     }
 

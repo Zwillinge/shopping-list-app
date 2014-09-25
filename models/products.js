@@ -6,8 +6,8 @@ define(function(){
                 this.sort('#value#', 'asc');
             }
         },
-        url:'cache->products.json',
-        save:'cache->products.json'
+        url:'cache->server/products.json',
+        save:'cache->server/products.json'
     });
 
     /*clears list of bought items*/

@@ -1,0 +1,13 @@
+{
+  "name": "Shopping List",
+  "description": "shopping goes convenient",
+  "launch_path": "/shopping-list-mvc",
+  "icons": {
+    "128": "/shopping-list-mvc/assets/imgs/logo.png"
+  },
+  "developer": {
+    "name": "XB",
+    "url": "xbsoftware.com"
+  },
+  "default_locale": "en"
+}
