@@ -1,8 +1,11 @@
-define(function(){
+define([
+    "app"
+], function(app){
 
     var collection = new webix.DataCollection({
+        id:"products",
         scheme:{
-            $init:function(){
+            $change:function(){
                 this.sort('#value#', 'asc');
             }
         },

@@ -5,7 +5,6 @@ define([
     "views/shopping"
 ],function(app, suggest, shopping){
 
-
     function renameList(batch){
         var toolbar = $$("mainbar"),
             elements = toolbar.getChildViews();
@@ -16,16 +15,18 @@ define([
             elements[0].setValue(elements[1].getValue()); //save input value to label
             webix.storage.local.put("list1", elements[1].getValue());
         }
-
         toolbar.showBatch(batch);
-        elements[1].focus();
+        webix.delay(function(){
+            elements[1].focus();
+        });
     }
 
     function enterNumDelimiter(){
         var value = $$("search").getValue();
-        if(value.indexOf(':')==-1){
+        if(value && value.indexOf(':')==-1){
             $$("search").setValue(value+': ');
         }
+        $$("search").focus();
     }
 
     function addLayer(){
@@ -56,7 +57,9 @@ define([
         visibleBatch:1,
         cols:[
             {view:'label', id:"listName", batch:1},
-            {view:'text', css:"rename", batch:2},
+            {view:'text', css:"rename", batch:2, on:{
+                'onBlur':function(){renameList(1);}
+            }},
             {view:'menu', width:35, openAction:"click", data:[
                 {id:1, value:"<span class='webix_input_icon fa-ellipsis-v'></span>", submenu:[
                     {id:2, value:'Rename'},
@@ -64,10 +67,9 @@ define([
                     {id:4, value:'Clear bought products'}
                 ]}
             ],
-                on:{
-                    "onMenuItemClick":function(id){ menuActions(id); }
-                }
-            }
+            on:{
+                "onMenuItemClick":function(id){ menuActions(id); }
+            }}
         ]
     };
 
