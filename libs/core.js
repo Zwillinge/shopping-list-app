@@ -351,7 +351,7 @@ define([
 
 		if (ui.id)
 			view = $$(ui.id);
-			
+
 		if (!view){
 			view = webix.ui(ui, container);
 			this._uis.push(view);
@@ -405,7 +405,11 @@ define([
 		if (this.root && this.root.config)
 			delete_ids(this.root);
 
-		this._ui = webix.ui(subview, this.root);
+		if (this.root && this.root.$view && this.root.name != "spacer")
+			this._ui = webix.ui.animate(subview, this.root);
+		else
+			this._ui = webix.ui(subview, this.root);
+
 		if (this.parent)
 			this.root = this._ui;
 
