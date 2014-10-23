@@ -7,15 +7,17 @@ define([
     "models/products"
 ],function(app, list, mview, products){
 
-    function switchViews(view){
-        $$(view).show();
+    function switchViews(scope, view){
+        scope.show("side/"+view);
+        highlightView(view);
     }
 
-    function highlightView(oldv, newv){
-        mview.setActiveCell(newv);
+    function highlightView(newv){
+        var oldv = mview.getActiveCell();
         var els = $$('side').getChildViews()[0].elements;
         if(oldv) els[oldv].getNode().firstChild.firstChild.style.backgroundColor = '#fff';
         if(newv) els[newv].getNode().firstChild.firstChild.style.backgroundColor = '#fff004';
+        mview.setActiveCell(newv);
     }
 
     var catalog_abc = {
@@ -71,11 +73,9 @@ define([
 
     var sidebar = {
         view:'toolbar', elements:[
-            {view:'icon', width:55, name:"catalog_abc", icon:'sort-alpha-asc', click:function(){switchViews(this.config.name);}, on:{
-                'onAfterRender':webix.once(function(){highlightView(null, this.config.name)})
-            }},
-            {view:'icon', width:55, name:"catalog_group", icon:'list-ul', click:function(){switchViews(this.config.name);}},
-            {view:'icon', width:55, name:"favourites", icon:'star', click:function(){switchViews(this.config.name);}},
+            {view:'icon', width:55, name:"catalog_abc", icon:'sort-alpha-asc', click:function(){switchViews(this.$scope, this.config.name);}},
+            {view:'icon', width:55, name:"catalog_group", icon:'list-ul', click:function(){switchViews(this.$scope, this.config.name);}},
+            {view:'icon', width:55, name:"favourites", icon:'star', click:function(){switchViews(this.$scope, this.config.name);}},
             {},
             {view:'icon', width:55, icon:'check', click:function(){this.$scope.show("main/shopping/");}}
         ]
@@ -84,14 +84,10 @@ define([
     var ui = {
         id:'side',
         rows:[
-            sidebar, { id:"lists", cells:[
-                catalog_abc, catalog_group, favourites
-            ],
-            on:{
-                'onViewChange':function(oldv, newv){
-                    highlightView(oldv, newv)
-                }
-            }}
+            sidebar,
+                { rows:[
+                    { $subview:true}
+                ]}
         ]
     };
 
@@ -102,19 +98,7 @@ define([
 
             //restore last opened tab
             var active = mview.getActiveCell()||"catalog_abc";
-            $$(active).show();
-            highlightView(null, active);
-
-            $$('catalog_abc').sync(products.data);
-
-            $$('catalog_group').sync(products.data);
-
-            //favourite products - chosen more than 5 times
-            $$('favourites').sync(products.data, function(){
-                this.filter(function(obj){
-                    return obj.star>5;
-                });
-            });
+            switchViews(scope, active);
         }
     };
 });
