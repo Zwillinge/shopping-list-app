@@ -5,7 +5,7 @@ define([
     ], function(app, products){
 
     function adjustPosition(view){
-        var top = view.getNode().offsetTop;
+        var top = view.getNode().offsetTop+30;
         var left = view.getNode().offsetLeft;
         view.setPosition(left, top);
     }
@@ -19,7 +19,8 @@ define([
         id:'suggest',
         css:'suggest',
         relative:"bottom",
-        //autofit:false,
+        height:"auto",
+        autofit:false,
         width:(function(){return window.innerWidth-20;})(),
         filter:function(item,value){
             if (value && item.value.toString().toLowerCase().indexOf(value.toLowerCase())!==-1)
@@ -29,10 +30,9 @@ define([
         body:{
             autoheight:true,
             borderless:true,
-            maxHeight:130,
             template:"<div class='suggest_item' style='background-color:#color#;'>#value#</div>",
             type:{
-                width:'auto', height: '35'
+                width:'auto', height: 'auto'
             },
             data:[
                 {id:1, value:"one"}
@@ -41,7 +41,7 @@ define([
         on:{
             'onValueSuggest':function(){app.trigger("enterNumDelimiter")},
             'onShow':function(){
-                //adjustPosition(this);
+                adjustPosition(this);
                 app.trigger("optionsShowHandler");
             },
             'onHide':function(){app.trigger("optionsHideHandler")}
