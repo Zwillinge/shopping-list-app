@@ -5,7 +5,7 @@ define([
     ], function(app, products){
 
     function adjustPosition(view){
-        var top = view.getNode().offsetTop+30;
+        var top = view.getNode().offsetTop;
         var left = view.getNode().offsetLeft;
         view.setPosition(left, top);
     }
@@ -20,7 +20,7 @@ define([
         css:'suggest',
         relative:"bottom",
         //autofit:false,
-        width:(function(){return window.innerWidth-20;})(), //ToDo::fit to screen
+        width:(function(){return window.innerWidth-20;})(),
         filter:function(item,value){
             if (value && item.value.toString().toLowerCase().indexOf(value.toLowerCase())!==-1)
                 return true;
@@ -32,7 +32,7 @@ define([
             maxHeight:130,
             template:"<div class='suggest_item' style='background-color:#color#;'>#value#</div>",
             type:{
-                width:'auto', height: 'auto'
+                width:'auto', height: '35'
             },
             data:[
                 {id:1, value:"one"}
@@ -41,7 +41,7 @@ define([
         on:{
             'onValueSuggest':function(){app.trigger("enterNumDelimiter")},
             'onShow':function(){
-                adjustPosition(this);
+                //adjustPosition(this);
                 app.trigger("optionsShowHandler");
             },
             'onHide':function(){app.trigger("optionsHideHandler")}
@@ -53,6 +53,11 @@ define([
         $oninit:function(view, scope){
             $$("suggest").getList().sync(products.data);
             scope.on(app, "isInCatalog", hideSuggest);
+
+            window.onresize = function(){
+                $$("suggest").define("width", window.innerWidth-20);
+                $$("suggest").resize();
+            }
         }
     };
 

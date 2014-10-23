@@ -27,7 +27,7 @@ define([
         },
         on:{
             'onItemClick':function(id){ products.addToBought(id, true);},
-            'data->onStoreUpdated':function(){list.setListEmpty('buy_list')}
+            'data->onStoreUpdated':function(){ list.setListEmpty('buy_list')}
         }
     };
 
@@ -60,6 +60,7 @@ define([
     return {
         $ui:shopping_list,
         $oninit:function(view, scope){
+            list.setOverlayNull('buy_list'); //null on redrawing
 
             $$('buy_list').sync(products.data, function(){
                 this.filter(function(obj){

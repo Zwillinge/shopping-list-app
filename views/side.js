@@ -26,7 +26,10 @@ define([
             return "<span style='background-color:"+obj.color+";' class='category'></span>"+checked+obj.value;
         },
         onClick:{
-            'webix_input_icon':function(e, id, node){products.addToList(id, null, true);}
+            'webix_input_icon':function(e, id, node){
+                products.addToList(id, null, true);
+                this.showItem(id);
+            }
         }
     };
 
@@ -41,7 +44,10 @@ define([
             return checked+obj.value;
         },
         onClick:{
-            'webix_input_icon':function(e, id){ products.addToList(id, null, true);}
+            'webix_input_icon':function(e, id){
+                products.addToList(id, null, true);
+                this.showItem(id);
+            }
         }
     };
 
@@ -53,12 +59,14 @@ define([
             return "<span style='background-color:"+obj.color+";' class='category'></span>"+checked+obj.value;
         },
         onClick:{
-            'webix_input_icon':function(e, id, node){products.addToList(id, null, true);}
+            'webix_input_icon':function(e, id, node){
+                products.addToList(id, null, true);
+                this.showItem(id);
+            }
         },
         on:{
-            'data->onStoreUpdated':function(){
-                list.setListEmpty('favourites');
-            }}
+            'data->onStoreUpdated':function(){ list.setListEmpty('favourites');}
+        }
     };
 
     var sidebar = {
@@ -90,6 +98,8 @@ define([
     return {
         $ui:ui,
         $oninit:function(view, scope){
+            list.setOverlayNull('favourites'); //null on redrawing
+
             //restore last opened tab
             var active = mview.getActiveCell()||"catalog_abc";
             $$(active).show();
