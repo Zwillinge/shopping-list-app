@@ -1,13 +1,15 @@
 {
-  "name": "Shopping List",
-  "description": "shopping goes convenient",
-  "launch_path": "/shopping-list-mvc",
+  "name": "Don't Forget",
+  "description": "<p>With the 'Don't Forget' app, you can forget about paper shopping lists that you are constantly leaving behind and calls with annoying requests to buy a few more things.</p> <p>To make your shopping handier and faster all that you need is to install Webix app 'Don't Forget' on your mobile device and start creating your first product list. You will be able to change list items on the go from anywhere using your mobile device.</p><p> Key Features:Single-click to add/delete list item, automatic sorting, simple navigation, resolution independent, s mooth transition between views.</p><p> Keywords: notes, Shopping List, Todo list, Shopping, list maker,shopping list app, grocery list, shopping list maker, grocery list maker, online grocery list maker</p>",
+  "launch_path": "/index.html",
   "icons": {
-    "128": "/shopping-list-mvc/assets/imgs/logo.png"
+     "128": "/assets/imgs/logo_128.png",
+     "512": "/assets/imgs/logo_512.png"
   },
   "developer": {
-    "name": "XB Software",
-    "url": "xbsoftware.com"
+     "name": "XB Software",
+     "url": "http://xbsoftware.com"
   },
-  "default_locale": "en"
+  "version":"1.0",
+  "fullscreen": "true"
 }
